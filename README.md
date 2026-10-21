@@ -1,7 +1,6 @@
 # Crossroads — First Loop (Lila Games Q1 playable prototype)
 
-**Browser build:** https://crossroads-first-loop.netlify.app/ *(re-deploy this version before treating the link as current)*
-
+**Browser build:** https://crossroads-first-loop.netlify.app/ 
 **Source repository:** https://github.com/AathiEshwar/crossroads-first-loop
 
 **Original UI / level designed in Figma:** https://www.figma.com/design/GRlF8JrDdd446aTRTYLFII/Track-Master-%E2%80%93-Game-UI?node-id=12-1478
