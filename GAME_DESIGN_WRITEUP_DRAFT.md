@@ -1,7 +1,7 @@
 # Question 1 — Crossroads: First Loop (replaces Afterimage)
 
 ## Prototype links
-Browser game: https://crossroads-first-loop.netlify.app/ (confirm latest version deployed)
+Browser game: https://crossroads-first-loop.netlify.app/ 
 GitHub: https://github.com/AathiEshwar/crossroads-first-loop
 Original Figma Level 1: https://www.figma.com/design/GRlF8JrDdd446aTRTYLFII/Track-Master-%E2%80%93-Game-UI?node-id=12-1478
 
