@@ -3,8 +3,7 @@
 ## Prototype links
 Browser game: https://crossroads-first-loop.netlify.app/ 
 GitHub: https://github.com/AathiEshwar/crossroads-first-loop
-Original Figma Level 1: https://www.figma.com/design/GRlF8JrDdd446aTRTYLFII/Track-Master-%E2%80%93-Game-UI?node-id=12-1478
-
+Original Figma Level 1: https://www.figma.com/design/iMIs7jgF9j00ZbyrAcHUSx/CrossyRoads?node-id=0-1&t=nDBjwfcwqXX699B0-1
 ## Pitch
 Crossroads is a one-level timing puzzle adapted from a level I had already designed in Figma for Track Master. The original concept used trains and railway loops; for this prototype, I changed it to cars travelling along intersecting roads. There are two cars and two crossing points. Both vehicles must finish two laps. I do not steer them: my decision is when to launch the blue car and when to launch the red one, knowing their routes will intersect. The level is for players who enjoy quick, readable timing puzzles and replaying a short challenge to improve their time.
 
