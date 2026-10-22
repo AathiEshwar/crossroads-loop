@@ -1,46 +1,41 @@
-# Crossroads — First Loop (Lila Games Q1 playable prototype)
+# Crossroads — First Loop
 
-**Browser build:** https://crossroads-first-loop.netlify.app/ 
-**Source repository:** https://github.com/AathiEshwar/crossroads-first-loop
+**Playable browser build:** https://crossroads-first-loop.netlify.app/  
+**Source code:** https://github.com/AathiEshwar/crossroads-loop  
+**Figma — Editable Crossroads Level 1:** https://www.figma.com/design/iMIs7jgF9j00ZbyrAcHUSx/CrossyRoads?node-id=0-1&t=nDBjwfcwqXX699B0-1
 
-**Original UI / level designed in Figma:** https://www.figma.com/design/iMIs7jgF9j00ZbyrAcHUSx/CrossyRoads?node-id=0-1&t=nDBjwfcwqXX699B0-1
+## What it is
 
-## Concept
+Crossroads is a compact timing puzzle with two cars driving on fixed road loops that meet at two intersections. Both cars need to complete two laps without colliding. The player does not steer either vehicle; the deliberate choice is the departure time gap.
 
-A single-level, timing-based road puzzle built by adapting the creator's existing Track Master Level 1 layout. Two vehicles drive fixed intersecting loops. The player cannot steer; the key decision is how long to wait between dispatching the cars. Both need to finish two laps without meeting at either intersection.
+The portrait scene, road-loop arrangement, HUD hierarchy and color-coded vehicles are represented in my editable Figma design. The browser implementation uses HTML5 canvas and JavaScript.
 
-## Controls — deliberate change from previous version
+## How to play
 
-- **First tap anywhere on the game screen:** launch the BLUE car.
-- **Second tap anywhere on the game screen:** launch the RED car.
-- Both cars then continue automatically. More taps **do not brake** or change their speeds.
-- On desktop, Space or Enter performs the same sequential dispatch.
-- After both cars are launched, the top-left icon restarts; the top-right icon pauses.
-- After a result, tap outside the Daily Traffic button to retry, or tap that button to play the date-seeded variation.
+- Tap inside the playing area once to launch **blue**.
+- Tap again to launch **red**.
+- Both cars move automatically after launch. Further taps cannot change their movement.
+- Keep their two crossing times separated long enough for both to complete two laps.
+- The game ends on collision or after the 31-second limit. A successful clear earns one to three stars.
+- On desktop, Space / Enter dispatches in the same sequence. The top-left control restarts and the top-right control pauses. Press R to restart.
 
-## Game rules
+## Daily Traffic
 
-- One level, two closed roads, two shared intersections, two laps per vehicle.
-- Cars crash if they occupy the same crossing too closely.
-- The clock begins with the blue-car launch; the run must finish within 31 seconds.
-- Star ratings: 3 stars for <=19s, 2 for <=23s, otherwise 1 for a clear.
-- Completion unlocks the visible **Daily Traffic** challenge: the same level with speeds that change by date and a local best time.
-- Scores and clear state are saved only in the player's browser. No login/backend is used.
+After a successful clear, the Daily Traffic option introduces a date-seeded speed variation and stores a local best time in the current browser. It is a designed replay incentive, **not verified D1 retention**.
 
-## Why this approach
+## Implementation and design process
 
-The original Figma layout is compact and visual. Only the transport theme changed from trains and rails to cars and roads; the location of the two loops and crossing points, level hierarchy, scenery and lower panel were kept as close to the original design as practical. The main change to the controls was requested after testing the first road prototype: players can now tap anywhere in sequence rather than targeting small vehicle buttons.
+The underlying two-loop layout and portrait interface direction were designed in Figma before the browser prototype. I chose the road-crossing mechanic and specified tap-anywhere sequential dispatch. ChatGPT assisted with the HTML5 implementation, SVG and artwork adaptation, debugging, browser tests and documentation. No AI model is used at runtime. Collision detection, car movement, stars and speed variations follow deterministic rules.
 
-## Technical implementation
+## Verification scope
 
-HTML5 canvas, vanilla JavaScript and CSS; no frameworks, servers or generated runtime scripts. Each car follows a sampled, closed Bezier path at a deterministic speed. Collision checks compare vehicle world positions as they enter the two shared areas. Desktop and mobile render the same portrait scene.
+Code-level and local browser checks have covered the two-tap sequence, collisions, clearing both laps, retrying and the Daily Traffic state. Independent first-time player feedback and public-site version verification are still needed before making broader gameplay or retention claims.
 
-The bundled valley background was adapted from the original candidate-designed Figma Level 1 screenshot to keep the artwork consistent, with train/rail regions cleaned and replaced by live-drawn roads and cars.
+## Files
 
-## AI disclosure
-
-The candidate designed the original Track Master UI and level before this assignment, and requested a road-based version with tap-anywhere sequential vehicle dispatch. ChatGPT helped implement the playable HTML5 prototype, adapt visual assets, test collision outcomes, and prepare documentation. No AI model is running in the game. Gameplay enjoyment and D1 retention have not been validated beyond developer/browser checks and need independent player testing.
-
-## Deployment
-
-Upload `index.html`, `game.js`, `style.css` and the `assets/` directory at the site's root. If using Netlify Drop, deploy the ZIP archive containing those items. Changing the site name alone will not update its contents.
+- `index.html` — portrait-game page
+- `style.css` — responsive frame styling
+- `game.js` — deterministic game logic and canvas rendering
+- `assets/valley-background.png` — scenery artwork
+- `GAME_DESIGN_WRITEUP.md` — Question 1 rationale and plan
+- `PLAYTEST_AND_QA.md` — technical-check summary and test limitations

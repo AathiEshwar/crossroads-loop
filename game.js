@@ -1,6 +1,9 @@
 /*
   CROSSROADS: FIRST LOOP
-  Based on the CrossRoads Level 1 Figma design.
+  Based on the candidate's Crossroads road-puzzle layout and Figma design.
+  AI-assisted implementation of a one-level design experiment. The original gameplay layout and art direction were provided by the candidate.
+  Touch anywhere once to launch blue, again to launch red. Subsequent taps never change a moving car.
+  No external JS libraries, servers, or AI used during gameplay.
 */
 (() => {
   'use strict';
@@ -36,7 +39,7 @@
     for(let i=0;i<rotated.length;i++){const a=rotated[i],b=rotated[(i+1)%rotated.length];lengths.push(lengths.at(-1)+Math.hypot(a.x-b.x,a.y-b.y));}
     return {points:rotated,lengths,total:lengths.at(-1)};
   }
-  // Faithful track-to-road conversion from the original twin-loop Level 1 coordinates.
+  // Two road loops with crossing points positioned to match the Figma road puzzle.
   // Blue: upper loop, red: lower loop, intersecting twice as in the Figma artwork.
   const blueRoute=route([65,210],[
     ['L',65,203],['C',65,174,80,156,104,156],['L',219,156],['C',249,156,260,172,260,201],
@@ -62,7 +65,7 @@
     render();
   }
   function launch(){
-    if(finished){const daily=x>=93&&x<=286&&y>=395&&y<=426;init(daily);return;}
+    if(finished){init(mode==='daily');return;}
     if(paused){paused=false;return;}
     if(launchStep===0){cars[0].phase='moving';launchStep=1;startGap=nowElapsed;pressPulse=.5;}
     else if(launchStep===1){cars[1].phase='moving';launchStep=2;staggerGap=nowElapsed-startGap;pressPulse=.5;}
@@ -188,9 +191,9 @@
     const bounds=canvas.getBoundingClientRect();const x=(e.clientX-bounds.left)/bounds.width*W;const y=(e.clientY-bounds.top)/bounds.height*H;
     e.preventDefault();
     if(finished){const daily=x>=93&&x<=286&&y>=395&&y<=426;init(daily);return;}
+    if(y<67 && x<70){init(mode==='daily');return;}
+    if(y<67 && x>305){paused=!paused;return;}
     if(paused){paused=false;return;}
-    if(launchStep>=2 && y<67 && x<70){init(mode==='daily');return;}
-    if(launchStep>=2 && y<67 && x>305){paused=true;return;}
     launch();
   }
   canvas.addEventListener('pointerdown',tap,{passive:false});
