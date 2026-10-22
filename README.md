@@ -3,7 +3,7 @@
 **Browser build:** https://crossroads-first-loop.netlify.app/ 
 **Source repository:** https://github.com/AathiEshwar/crossroads-first-loop
 
-**Original UI / level designed in Figma:** https://www.figma.com/design/GRlF8JrDdd446aTRTYLFII/Track-Master-%E2%80%93-Game-UI?node-id=12-1478
+**Original UI / level designed in Figma:** https://www.figma.com/design/iMIs7jgF9j00ZbyrAcHUSx/CrossyRoads?node-id=0-1&t=nDBjwfcwqXX699B0-1
 
 ## Concept
 
