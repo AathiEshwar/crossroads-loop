@@ -1,9 +1,6 @@
 /*
   CROSSROADS: FIRST LOOP
-  Based on the candidate's existing Track Master Level 1 Figma design.
-  AI-assisted implementation of a one-level design experiment. Figma design belongs to the candidate.
-  Touch anywhere once to launch blue, again to launch red. Subsequent taps never change a moving car.
-  No external JS libraries, servers, or AI used during gameplay.
+  Based on the CrossRoads Level 1 Figma design.
 */
 (() => {
   'use strict';
